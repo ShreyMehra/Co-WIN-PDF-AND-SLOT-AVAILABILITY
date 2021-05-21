@@ -1,3 +1,15 @@
+Flask==1.1.1
+gunicorn==19.9.0
+itsdangerous==1.1.0
+MarkupSafe==1.1.1
+Werkzeug==0.15.5
+numpy>=1.9.2
+scipy>=0.15.1
+scikit-learn==0.22.1
+matplotlib>=1.4.3
+pandas>=0.19
+flasgger==0.9.4
+streamlit
 altair==4.1.0
 argon2-cffi==20.1.0
 astor==0.8.1
@@ -60,7 +72,6 @@ requests==2.25.1
 Send2Trash==1.5.0
 six==1.16.0
 smmap==4.0.0
-streamlit==0.82.0
 tabulate==0.8.9
 terminado==0.10.0
 testpath==0.5.0
@@ -75,3 +86,4 @@ watchdog==2.1.2
 wcwidth==0.2.5
 webencodings==0.5.1
 widgetsnbextension==3.5.1
+json

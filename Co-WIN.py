@@ -1,17 +1,13 @@
-#OWN API
-import datetime
-import json
+import datetime,time, sys, os, random
+import json, requests,base64,tabulate
+
 import numpy as np
-import requests
 import pandas as pd
 import streamlit as st
 from copy import deepcopy
-import base64
-import copy
 from collections import Counter
 from inputimeout import inputimeout, TimeoutOccurred
-import tabulate, copy, time, datetime, requests, sys, os, random
-from hashlib import sha256
+import from hashlib import sha256
 beneficiaries = 'https://cdn-api.co-vin.in/api/v2/appointment/beneficiaries'
 OTP_PUBLIC_URL = 'https://cdn-api.co-vin.in/api/v2/auth/public/generateOTP'
 OTP_PRO_URL = 'https://cdn-api.co-vin.in/api/v2/auth/generateMobileOTP'

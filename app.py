@@ -74,13 +74,13 @@ def verify_otp(OTP,request_header,txnID):
         token = token.json()['token']
         print('token generated')
         return token
-    if token.status_code == 400:
+    elif token.status_code == 400:
         st.write("OTP has expired,enter on phone number")
     else:
         print("Unable to verify token")
         print(token.status_code)
         print(token.text)
-        retry = input("Retry with {mobile} or no")
+        retry = st.text_input("Retry with {mobile} or no",10)
         retry = retry if retry else 'y'
         if (retry == 'y'):
             OTP = st.text_input("OTP")

@@ -53,7 +53,7 @@ def send_otp(mobile,request_header):
     else:
         print("Unable to generate OTP")
         print(txnID.status_code,txnID.text)
-        retry = input("Retry with {mobile} or no")
+        retry = st.text_input("Retry with {mobile} or no")
         retry = retry if retry else 'y'
         if (retry == 'y'):
             pass

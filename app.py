@@ -112,7 +112,6 @@ def fetch_details(request_header):
     dict_bref = dict()
     for beneficiary in resp_json['beneficiaries']:
         name.append(beneficiary['name'])
-        print(beneficiary['name'])
         dict_bref[beneficiary['name']] = beneficiary['beneficiary_reference_id']
     return name,dict_bref
 
@@ -124,18 +123,15 @@ base_request_header = {
 @st.cache(allow_output_mutation=True, suppress_st_warning=True)
 def load_state_mapping():
     URL = "https://cdn-api.co-vin.in/api/v2/admin/location/states"
-    response = requests.get(URL,headers=browser_header)
-    print(response)
-    state_df = json.loads(response.text)["states"]
+    response = requests.get(URL,headers=browser_header).json
+    state_df = response["states"]
     state_df = pd.DataFrame(state_df)
     state_dict = pd.Series(state_df["state_id"].values,
                          index = state_df["state_name"].values).to_dict()
     mapping_state_dict = pd.Series(state_df["state_id"].values,
                          index = state_df["state_name"].values).to_dict()
-    print(state_dict)
     unique_state = list(state_df["state_name"].unique())
     unique_state.sort()
-    print(unique_state)
     return state_df, mapping_state_dict,unique_state
 
 def load_district_mapping(state_id):
